@@ -1,0 +1,305 @@
+- id: "dev-0"
+  metadata:
+    difficulty: "简单"
+    category: "条件"
+    modal: "表格"
+    turn: "单轮"
+  query: "江苏爱康太阳能2008年度无形资产投资多少？"
+  history: []
+  golden_answer: "1526.45万元"
+  related_documents:
+    - source_file: "江苏爱康太阳能科技股份有限公司.PDF"
+      page_no: 12
+      content: |
+        <table>
+          <tr>
+            <th>项目</th>
+            <th>2010年度</th>
+            <th>2009年度</th>
+            <th>2008年度</th>
+          </tr>
+          <tr>
+            <td>无形资产投资</td>
+            <td>12,040.47</td>
+            <td>358.50</td>
+            <td>1,526.45</td>
+          </tr>
+        </table>
+
+- id: "dev-1"
+  metadata:
+    difficulty: "简单"
+    category: "事实"
+    modal: "文本"
+    turn: "单轮"
+  query: "江苏爱康太阳能本次募集资金拟投资项目总投资额是多少？"
+  history: []
+  golden_answer: "人民币 47295.60 万元"
+  related_documents:
+    - source_file: "江苏爱康太阳能科技股份有限公司.PDF"
+      page_no: 269
+      content: |
+        公司本次募集资金拟投资项目总投资额为人民币 47,295.60 万元
+
+- id: "dev-2"
+  metadata:
+    difficulty: "简单"
+    category: "事实"
+    modal: "文本"
+    turn: "多轮"
+  query: "实际控制人是谁？"
+  history:
+    - role: "user"
+      content: "江苏爱康太阳能科技股份有限公司的设立历史"
+    - role: "assistant"
+      content: "2006年3月9日，江苏爱康太阳能科技股份有限公司前身江阴爱康太阳能器材有限公司成立。2009年9月24日江阴爱康太阳能器材有限公司依法更名为江苏爱康太阳能科技有限公司。2010年9月14日，江苏爱康太阳能科技有限公司整体变更为江苏爱康太阳能科技股份有限公司。"
+  golden_answer: "邹承慧"
+  related_documents:
+    - source_file: "江苏爱康太阳能科技股份有限公司.PDF"
+      page_no: 17
+      content: |
+        截至本招股意向书签署日，邹承慧先生分别持有本公司控股股东爱康实业 100.00%的股权、爱康国际100.00%的股权和爱康投资39.29%的股权，从而间接持有本公司56.58%的股份，为本公司实际控制人。
+
+- id: "dev-3"
+  metadata:
+    difficulty: "简单"
+    category: "集合"
+    modal: "文本"
+    turn: "单轮"
+  query: "江苏爱康太阳能公司有哪些控股子公司？"
+  history: []
+  golden_answer: "南通爱康、张家港爱康、佛山同兴、苏州爱康安装、苏州爱康新材料、无锡爱康"
+  related_documents:
+    - source_file: "江苏爱康太阳能科技股份有限公司.PDF"
+      page_no: 55
+      content: |
+        截至本招股意向书签署之日，发行人共拥有六家控股子公司：南通爱康、张家港爱康、佛山同兴、苏州爱康安装、苏州爱康新材料、无锡爱康，除无锡爱康为发行人持有60%股权的控股子公司外，其余五家子公司均系发行人全资子公司。
+
+- id: "dev-4"
+  metadata:
+    difficulty: "中等"
+    category: "比较"
+    modal: "文本"
+    turn: "单轮"
+  query: "江苏爱康太阳能公司和安徽黄山胶囊股份有限公司谁的注册资本高？分别是多少？"
+  history: []
+  golden_answer: "江苏爱康太阳能科技股份有限公司注册资本更高，为15000万元。安徽黄山胶囊股份有限公司注册资本为6500万元。"
+  related_documents:
+    - source_file: "江苏爱康太阳能科技股份有限公司.PDF"
+      page_no: 17
+      content: |
+        注册资本：15,000万元
+    - source_file: "安徽黄山胶囊股份有限公司.PDF"
+      page_no: 27
+      content: |
+        注 册 资 本  ： 6,500 万元
+
+- id: "dev-5"
+  metadata:
+    difficulty: "中等"
+    category: "聚合"
+    modal: "文本"
+    turn: "单轮"
+  query: "江苏爱康太阳能公司有哪些国有法人股东？"
+  history: []
+  golden_answer: "南通高胜成长创业投资有限公司、无锡高德创业投资有限公司、江苏高胜科技创业投资有限公司"
+  related_documents:
+    - source_file: "江苏爱康太阳能科技股份有限公司.PDF"
+      page_no: 36
+      content: |
+        <table>
+            <tr>
+                <th>序号</th>
+                <th>股 东</th>
+                <th>股权性质</th>
+                <th>持股数量<br>(万股)</th>
+                <th>持股比例<br>(%)</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>江苏爱康实业有限责任公司</td>
+                <td>社会法人股</td>
+                <td>4,533.30</td>
+                <td>30.22</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>爱康国际控股有限公司</td>
+                <td>外资法人股</td>
+                <td>3,799.58</td>
+                <td>25.33</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>南通高胜成长创业投资有限公司</td>
+                <td>国有法人股</td>
+                <td>1,462.68</td>
+                <td>9.75</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>无锡高德创业投资有限公司</td>
+                <td>国有法人股</td>
+                <td>1,265.85</td>
+                <td>8.44</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>苏州中吴新能源投资管理中心(有限合伙)</td>
+                <td>合伙企业持股</td>
+                <td>1,161.00</td>
+                <td>7.74</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>海澜集团有限公司</td>
+                <td>社会法人股</td>
+                <td>900.00</td>
+                <td>6.00</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>高投名力成长创业投资有限公司</td>
+                <td>社会法人股</td>
+                <td>632.93</td>
+                <td>4.22</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>江阴爱康投资有限公司</td>
+                <td>社会法人股</td>
+                <td>391.50</td>
+                <td>2.61</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>绍兴平安创新投资有限责任公司</td>
+                <td>社会法人股</td>
+                <td>349.95</td>
+                <td>2.33</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>江苏高胜科技创业投资有限公司</td>
+                <td>国有法人股</td>
+                <td>253.17</td>
+                <td>1.69</td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>平安财智投资管理有限公司</td>
+                <td>社会法人股</td>
+                <td>250.05</td>
+                <td>1.67</td>
+            </tr>
+            <tr>
+                <td>合计</td>
+                <td></td>
+                <td>-</td>
+                <td>15,000.00</td>
+                <td>100.00</td>
+            </tr>
+        </table>
+
+- id: "dev-6"
+  metadata:
+    difficulty: "困难"
+    category: "多跳"
+    modal: "文本"
+    turn: "单轮"
+  query: "江苏爱康太阳能公司法定代表人将什么专利转让给公司？"
+  history: []
+  golden_answer: "2009年江苏爱康太阳能科技股份有限公司法定代表人邹承慧先生将发明专利“自动进刀扩/钻孔机床”（专利号为 200610097357.1）作价一元转让予公司。"
+  related_documents:
+    - source_file: "江苏爱康太阳能科技股份有限公司.PDF"
+      page_no: 163
+      content: |
+        为支持公司规范化运作，2009 年发行人实际控制人邹承慧先生发明专利“自动进刀扩/钻孔机床”（专利号为 200610097357.1）作价一元转让予本公司
+    - source_file: "江苏爱康太阳能科技股份有限公司.PDF"
+      page_no: 17
+      content: |
+        法定代表人：邹承慧
+
+- id: "dev-7"
+  metadata:
+    difficulty: "困难"
+    category: "后处理"
+    modal: "表格"
+    turn: "单轮"
+  query: "江苏爱康太阳能公司和爱康实业采购货物，2009年度采购金额同比有什么变化？"
+  history: []
+  golden_answer: "江苏爱康太阳能公司向爱康实业采购货物，2009年度采购太阳能背板37.08万元，2008年度采购太阳能背板196.05万元，同比减少81.09%。"
+  related_documents:
+    - source_file: "江苏爱康太阳能科技股份有限公司.PDF"
+      page_no: 159
+      content: |
+        报告期内，公司向爱康实业销售产品和采购货物，交易情况如下：
+        单位：万元
+        <table>
+        <tr>
+        <th>序号</th>
+        <th>交易内容</th>
+        <th>交易期间</th>
+        <th>交易金额</th>
+        </tr>
+        <tr>
+        <td rowspan="3">1</td>
+        <td>-</td>
+        <td>2010 年度</td>
+        <td>-</td>
+        </tr>
+        <tr>
+        <td>销售背板</td>
+        <td>2009 年度</td>
+        <td>47.87</td>
+        </tr>
+        <tr>
+        <td>销售边框</td>
+        <td>2008 年度</td>
+        <td>1,206.62</td>
+        </tr>
+        <tr>
+        <td rowspan="3">2</td>
+        <td rowspan="3">采购太阳能背板</td>
+        <td>2010 年度</td>
+        <td>-</td>
+        </tr>
+        <tr>
+        <td>2009 年度</td>
+        <td>37.08</td>
+        </tr>
+        <tr>
+        <td>2008 年度</td>
+        <td>196.05</td>
+        </tr>
+        </table>
+
+- id: "dev-8"
+  metadata:
+    difficulty: "中等"
+    category: "条件"
+    modal: "图片"
+    turn: "单轮"
+  query: "2006年中，多晶硅价格大约是多少？"
+  history: []
+  golden_answer: "100美元/千克"
+  related_documents:
+    - source_file: "江苏爱康太阳能科技股份有限公司.PDF"
+      page_no: 106
+      content: |
+        <img alt="2003-2009年多晶硅价格走势图（单位：美元/千克）"></img>
+
+- id: "dev-9"
+  metadata:
+    difficulty: "困难"
+    category: "错误前提"
+    modal: "文本"
+    turn: "单轮"
+  query: "江苏爱康太阳能公司在美国纽约证券交易所的股票代码是什么？"
+  history: []
+  golden_answer: "江苏爱康太阳能公司并未在美国纽约证券交易所上市，该公司申请在深圳证券交易所上市"
+  related_documents:
+    - source_file: "江苏爱康太阳能科技股份有限公司.PDF"
+      page_no: 2
+      content: |
+        拟上市证券交易所：深圳证券交易所
