@@ -121,26 +121,29 @@ JUDGE_MODEL=openai/gpt-4o-mini
 # 执行文档处理
 python doc_process.py \
     --doc_dir ../data/dev_pdf/
-    --corpus_file dev_corpus.json
+    --corpus_file output/dev_corpus.json
 
 # 执行索引构建（BM25）
 python index.py \
-    --corpus_file dev_corpus.json
+    --corpus_file output/dev_corpus.json
+    --index_file output/dev.index
 
 # 执行批量问答
 python qa.py \
-    --input_file ../data/dev.json \
-    --output_file dev_result.json \
-    --batch_size 3
+    --input_file ../data/dev.yaml \
+    --output_file output/dev_result.json \
+    --index_file output/dev.index \
+    --batch_size 10
 
 # 执行评测脚本
-python eval.py \
-    --input_file ../data/dev.json \
-    --answer_file dev_result.json
-    --eval_results_file dev_eval_results.json
+python evaluation.py \
+    --input_file ../data/dev.yaml \
+    --answer_file output/dev_result.json \
+    --eval_results_file output/dev_eval_results.json \
+    --batch_size 10
 
 # 执行人工复核
 python manual_judge.py \
-    --input_file dev_eval_results.json \
-    --judge_results_file dev_judge_results.json
+    --input_file output/dev_eval_results.json \
+    --judge_results_file output/dev_judge_results.json
 ```
