@@ -108,6 +108,7 @@ Baseline 实现在 `baseline` 目录下。
 cd baseline
 pip install -r requirements.txt
 
+cp env.template .env
 # 配置 .env 中的模型调用参数
 ANSWER_MODEL=openai/gpt-4o-mini
 OPENAI_API_KEY=xxx
@@ -120,12 +121,12 @@ JUDGE_MODEL=openai/gpt-4o-mini
 
 # 执行文档处理
 python doc_process.py \
-    --doc_dir ../data/dev_pdf/
+    --doc_dir ../data/dev_pdf/ \
     --corpus_file output/dev_corpus.json
 
 # 执行索引构建（BM25）
 python index.py \
-    --corpus_file output/dev_corpus.json
+    --corpus_file output/dev_corpus.json \
     --index_file output/dev.index
 
 # 执行批量问答
