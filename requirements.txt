@@ -7,4 +7,6 @@ langchain_openai==0.3.31
 tenacity==9.0.0
 python-dotenv==1.1.1
 rouge==1.0.1
+gradio==5.47.1
 httpx[socks]
+-e GraphGen/
