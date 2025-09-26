@@ -23,6 +23,10 @@ This is a RAG (Retrieval-Augmented Generation) benchmark repository containing t
 - Results format includes `answer` and `documents` with `source_file`, `page_no`, `content`, and `score`
 - Documents must not cross pages to enable proper evaluation
 
+## Python Env
+
+- MUST use uv to manage virtual environment
+- MUST use uv to run Python scripts.
 
 ## Important Notes
 

@@ -37,11 +37,11 @@
 
 | 文件名 | 数据集类型 | 条数 | 说明 |
 | --- | --- | --- | --- |
-| `data/corpus.jsonl` | corpus | N | 全量文档，格式为 `{"id": "xxx", "url": "xxx", "content": "xxx"}` | 
-| `data/dev_corpus.jsonl` | corpus | 100 | 为 dev 准备少量文档，用于调试| 
-| `data/dev.jsonl` | dev | 10 | 固定种子随机拆分 |
-| `data/val.jsonl`, `data/val_input.jsonl` | val | 100 | 固定种子随机拆分 |
-| `data/test.jsonl`, `data/test_input.jsonl` | test | 3000 | 全量数据 |
+| `chinese_simpleqa/data/corpus.jsonl` | corpus | N | 全量文档，格式为 `{"id": "xxx", "url": "xxx", "content": "xxx"}` |
+| `chinese_simpleqa/data/dev_corpus.jsonl` | corpus | 100 | 为 dev 准备少量文档，用于调试|
+| `chinese_simpleqa/data/dev.jsonl` | dev | 10 | 固定种子随机拆分 |
+| `chinese_simpleqa/data/val.jsonl`, `chinese_simpleqa/data/val_input.jsonl` | val | 100 | 固定种子随机拆分 |
+| `chinese_simpleqa/data/test.jsonl`, `chinese_simpleqa/data/test_input.jsonl` | test | 3000 | 全量数据 |
 
 `<val/test>_input.jsonl` 是实际给到业务系统评测的验证集输入，仅包括 id、query 字段。
 
@@ -67,7 +67,7 @@ N 取值： 1、3、5、10
 
 ### 提交文件格式
 
-示例提交文件为 `data/result.jsonl`，每行格式如下
+示例提交文件为 `chinese_simpleqa/data/result.jsonl`，每行格式如下
 
 ```json
 {
@@ -106,13 +106,13 @@ python index.py \
 
 # 执行批量问答
 python qa.py \
-    --input_file ../data/dev.jsonl \
+    --input_file ../chinese_simpleqa/data/dev.jsonl \
     --output_file dev_result.jsonl \
     --batch_size 3
 
 # 执行评测脚本
 python eval.py \
-    --input_file ../data/dev.jsonl \
+    --input_file ../chinese_simpleqa/data/dev.jsonl \
     --answer_file dev_result.jsonl
     --eval_results_file dev_eval_results.json
 ```

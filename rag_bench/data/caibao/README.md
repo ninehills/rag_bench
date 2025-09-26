@@ -4,7 +4,7 @@
 
 数据来自[博金大模型挑战赛-金融千问14b数据集](https://www.modelscope.cn/datasets/BJQW14B/bs_challenge_financial_14b_dataset/summary)中的招股说明书 80 份 PDF 文件，并没有使用其 Questions 数据（质量较低）。
 
-本项目将 80 份 PDF 文件重命名为 `<公司名称>.pdf`，并分别放入 `data/dev_pdf` 和 `data/val_pdf` 目录下。
+本项目将 80 份 PDF 文件重命名为 `<公司名称>.pdf`，并分别放入 `caibao/data/dev_pdf` 和 `caibao/data/val_pdf` 目录下。
 
 这些招股说明书文件多数并不是扫描件，但具备复杂的表格、流程图等元素。
 
@@ -57,8 +57,8 @@
 
 | 文件名 | 数据集类型 | 条数 | 说明 |
 | --- | --- | --- | --- |
-| `data/dev.json` | dev | 10 | 覆盖全部问题类型和问题轮次，单轮问题占多数 |
-| `data/val.json`, `data/val_input.json` | val | 100 | 按照实际业务中的比例构造 |
+| `caibao/data/dev.json` | dev | 10 | 覆盖全部问题类型和问题轮次，单轮问题占多数 |
+| `caibao/data/val.json`, `caibao/data/val_input.json` | val | 100 | 按照实际业务中的比例构造 |
 
 `val_input.json` 是实际给到业务系统评测的验证集输入，仅包括 id、query 和 history 字段。
 
@@ -86,7 +86,7 @@ N 取值： 1、3、5、10（只评估 Top10，不关注检索系统的切片情
 
 ### 提交文件格式
 
-示例提交文件为 `data/result.json`，格式如下
+示例提交文件为 `caibao/data/result.json`，格式如下
 
 ```json
 [{
@@ -99,52 +99,3 @@ N 取值： 1、3、5、10（只评估 Top10，不关注检索系统的切片情
 ```
 
 注意：切分的时候强制不跨页，避免跨页无法评估。
-
-### Baseline 实现
-
-Baseline 实现在 `baseline` 目录下。
-
-```bash
-cd baseline
-pip install -r requirements.txt
-
-cp env.template .env
-# 配置 .env 中的模型调用参数
-ANSWER_MODEL=openai/gpt-4o-mini
-OPENAI_API_KEY=xxx
-OPENAI_BASE_URL=https://api.xx.cn/v1
-
-JUDGE_MODEL=openai/gpt-4o-mini
-### 不配置的话复用 OPENAI_API_KEY/OPENAI_BASE_URL
-# JUDGE_OPENAI_API_KEY=xxx
-# JUDGE_OPENAI_BASE_URL=https://api.xx.cn/v1
-
-# 执行文档处理
-python doc_process.py \
-    --doc_dir ../data/dev_pdf/ \
-    --corpus_file output/dev_corpus.json
-
-# 执行索引构建（BM25）
-python index.py \
-    --corpus_file output/dev_corpus.json \
-    --index_file output/dev.index
-
-# 执行批量问答
-python qa.py \
-    --input_file ../data/dev.yaml \
-    --output_file output/dev_result.json \
-    --index_file output/dev.index \
-    --batch_size 10
-
-# 执行评测脚本
-python evaluation.py \
-    --input_file ../data/dev.yaml \
-    --answer_file output/dev_result.json \
-    --eval_results_file output/dev_eval_results.json \
-    --batch_size 10
-
-# 执行人工复核
-python manual_judge.py \
-    --input_file output/dev_eval_results.json \
-    --judge_results_file output/dev_judge_results.json
-```

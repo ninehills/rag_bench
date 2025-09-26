@@ -1,0 +1,3 @@
+[submodule "GraphGen"]
+	path = GraphGen
+	url = git@github.com:ninehills/GraphGen.git
