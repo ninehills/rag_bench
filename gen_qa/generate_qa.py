@@ -170,13 +170,6 @@ def run_graphgen(config_file: Path, output_dir: Path, trainee_model_enable: bool
         print(f"GraphGen执行失败: {e}")
         sys.exit(1)
 
-    finally:
-        # 清理临时配置文件
-        try:
-            actual_config_file.unlink()
-            print(f"已清理临时配置文件: {actual_config_file}")
-        except Exception as e:
-            print(f"清理临时配置文件失败: {e}")
 
 
 def copy_results(output_dir: Path, final_output_file: str, question_type: str) -> None:
