@@ -174,22 +174,28 @@ def run_graphgen(config_file: Path, output_dir: Path, trainee_model_enable: bool
 
 def copy_results(output_dir: Path, final_output_file: str, question_type: str) -> None:
     """将生成的结果复制到最终输出位置并转换为标准格式"""
-    # GraphGen会在output_dir/data/graphgen/{unique_id}/下生成结果文件
-    # 查找qa-*.json文件
-    qa_files = list(output_dir.glob("data/graphgen/*/qa-*.json"))
+    # GraphGen会在output_dir/data/graphgen/{timestamp}/下生成结果文件
+    # 找到最新的时间戳目录（最大的时间戳）
+    graphgen_dirs = list(output_dir.glob("data/graphgen/*"))
 
-    if not qa_files:
-        # 如果没有找到，尝试查找其他JSON文件
-        qa_files = list(output_dir.glob("**/*.json"))
-        qa_files = [f for f in qa_files if f.name.startswith('qa-')]
-
-    if not qa_files:
-        print(f"警告: 在 {output_dir} 中未找到生成的qa文件")
+    if not graphgen_dirs:
+        print(f"警告: 在 {output_dir} 中未找到GraphGen生成目录")
         return
 
-    # 假设取第一个生成的qa文件
+    # 按时间戳（目录名）排序，取最大的
+    graphgen_dirs.sort(key=lambda x: int(x.name), reverse=True)
+    latest_dir = graphgen_dirs[0]
+    print(f"找到最新的GraphGen目录: {latest_dir}")
+
+    # 在最新目录中查找qa-*.json文件
+    qa_files = list(latest_dir.glob("qa-*.json"))
+
+    if not qa_files:
+        print(f"警告: 在 {latest_dir} 中未找到生成的qa文件")
+        return
+
     source_file = qa_files[0]
-    print(f"找到生成的文件: {source_file}")
+    print(f"找到最新生成的文件: {source_file}")
 
     # 读取GraphGen生成的结果
     with open(source_file, 'r', encoding='utf-8') as f:
